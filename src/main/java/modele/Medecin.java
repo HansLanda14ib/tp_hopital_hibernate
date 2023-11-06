@@ -22,7 +22,7 @@ public class Medecin extends Personne {
     private Medecin medecinChef;
 
 
-    @OneToMany(mappedBy = "medecin",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "medecin", fetch = FetchType.LAZY)
     private List<Participation> participations;
 
     public Service getService() {
@@ -74,11 +74,11 @@ public class Medecin extends Personne {
         this.medecinChef = medecinChef;
     }
 
+
     @Override
     public String toString() {
         return "Medecin{" + this.getNom() + " " + this.getPrenom() +
-                ", salaire=" + salaire +
-                ", service=" + service.getNom() +
+                ", salaire=" + this.getSalaire() +
                 '}';
     }
 }

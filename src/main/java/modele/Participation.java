@@ -2,6 +2,8 @@ package modele;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 public class Participation {
     @Id
@@ -16,7 +18,7 @@ public class Participation {
     @ManyToOne
     private Equipe equipe;
 
-    public Participation(String fonction, Medecin medecin, Equipe equipe) {
+    public Participation(Medecin medecin, Equipe equipe, String fonction) {
         this.fonction = fonction;
         this.medecin = medecin;
         this.equipe = equipe;
@@ -56,5 +58,28 @@ public class Participation {
 
     public void setEquipe(Equipe equipe) {
         this.equipe = equipe;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Participation that = (Participation) o;
+        return id == that.id && Objects.equals(fonction, that.fonction) && Objects.equals(medecin, that.medecin) && Objects.equals(equipe, that.equipe);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, fonction, medecin, equipe);
+    }
+
+    @Override
+    public String toString() {
+        return "Participation{" +
+                "id=" + id +
+                ", fonction='" + fonction + '\'' +
+                ", medecin=" + medecin +
+                ", equipe=" + equipe +
+                '}';
     }
 }

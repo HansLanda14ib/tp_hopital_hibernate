@@ -66,9 +66,12 @@ public class App {
         System.out.println(medecins); */
         // Question 8
 
-        System.out.println("Done");
+      /*  System.out.println("Done");
         List<Medecin> medecins =TestJPQL5.setSalaire();
         System.out.println(medecins);
+        */
+
+
 
 
 
